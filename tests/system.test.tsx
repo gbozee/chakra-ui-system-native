@@ -1,4 +1,4 @@
-import { render } from "@chakra-ui/test-utils"
+import { render } from "../test-utils"
 import * as React from "react"
 import { chakra } from "../src"
 

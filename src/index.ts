@@ -9,4 +9,5 @@ export { omitThemingProps } from "./system.utils"
 export * from "./system"
 export * from "./forward-ref"
 export * from "./use-style-config"
+export {theme as defaultTheme} from './theme'
 export { shouldForwardProp } from "./should-forward-prop"

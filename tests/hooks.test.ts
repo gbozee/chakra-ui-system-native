@@ -1,5 +1,4 @@
-import { renderHook } from "@chakra-ui/test-utils"
-import { createBreakpoints } from "../../theme-tools"
+import { renderHook } from "../test-utils"
 import { toCSSVar, useToken } from "../src"
 import * as system from "../src/providers"
 
@@ -23,13 +22,13 @@ const mockSpace = {
   "1.5": "0.375rem",
 }
 
-const mockBreakpoints = createBreakpoints({
+const mockBreakpoints = {
   sm: "30em",
   md: "48em",
   lg: "62em",
   xl: "80em",
   "2xl": "96em",
-})
+}
 
 const setupMock = () => {
   jest.spyOn(system, "useTheme").mockReturnValueOnce(

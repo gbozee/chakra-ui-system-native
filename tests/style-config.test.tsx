@@ -1,10 +1,10 @@
-import { rtlRender, render } from "@chakra-ui/test-utils"
+import { rtlRender, render } from "../test-utils"
 import * as React from "react"
 import { ThemeProvider, useStyleConfig, useProps } from "../src"
 
 test("should resolve styles in theme", async () => {
   const Component = () => {
-    const styles = useStyleConfig("Button", { size: "sm" })
+    const styles = useStyleConfig("Button", { size: "sm" } as any)
     return <>{JSON.stringify(styles, null, 2)}</>
   }
 
@@ -50,7 +50,7 @@ test("should resolve multipart styles in theme", async () => {
       size: "sm",
       variant: "outline",
     }
-    const styles = useStyleConfig("Tabs", props)
+    const styles = useStyleConfig("Tabs", props as any)
     return <>{JSON.stringify(styles, null, 2)}</>
   }
 

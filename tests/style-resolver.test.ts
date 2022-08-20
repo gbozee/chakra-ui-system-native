@@ -1,6 +1,6 @@
-import { toCSSVar } from "@chakra-ui/styled-system"
-import defaultTheme from "@chakra-ui/theme"
-import { toCSSObject } from "../src/system"
+import { toCSSVar } from "..";
+import { defaultTheme } from "..";
+import { toCSSObject } from "../src/system";
 
 const theme = toCSSVar({
   ...defaultTheme,
@@ -22,7 +22,7 @@ const theme = toCSSVar({
       fontSize: "sm",
     },
   },
-})
+});
 
 test("should resolve styles correctly", () => {
   const result = toCSSObject({ baseStyle: { bgPosition: "center" } })({
@@ -54,7 +54,7 @@ test("should resolve styles correctly", () => {
         display: "block",
       },
     },
-  })
+  });
 
   expect(result).toMatchInlineSnapshot(`
     Array [
@@ -95,21 +95,21 @@ test("should resolve styles correctly", () => {
         "paddingLeft": 40,
       },
     ]
-  `)
-})
+  `);
+});
 test("should resolve styles correctly", () => {
   const result = toCSSObject({ baseStyle: (props) => ({ bg: props.color }) })({
     theme,
     color: "pink.300",
-  })
+  });
 
   expect(result).toMatchInlineSnapshot(`
     Object {
       "background": "var(--chakra-colors-pink-300)",
       "color": "var(--chakra-colors-pink-300)",
     }
-  `)
-})
+  `);
+});
 
 test("should override padding correctly", () => {
   const result = toCSSObject({})({
@@ -121,7 +121,7 @@ test("should override padding correctly", () => {
     paddingRight: 3,
     mr: "5",
     bg: "pinkish",
-  })
+  });
 
   expect(result).toMatchInlineSnapshot(`
     Object {
@@ -132,5 +132,5 @@ test("should override padding correctly", () => {
       "paddingInlineStart": "var(--chakra-space-4)",
       "paddingRight": "var(--chakra-space-3)",
     }
-  `)
-})
+  `);
+});
