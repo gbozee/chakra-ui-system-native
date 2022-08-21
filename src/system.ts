@@ -3,26 +3,28 @@ import {
   isStyleProp,
   StyleProps,
   SystemStyleObject,
-} from "@chakra-ui/styled-system"
-import { filterUndefined, objectFilter, runIfFn } from "@chakra-ui/utils"
-import _styled, { CSSObject, FunctionInterpolation } from "@emotion/styled"
-import { shouldForwardProp } from "./should-forward-prop"
-import { As, ChakraComponent, ChakraProps, PropsOf } from "./system.types"
-import { domElements, DOMElements } from "./system.utils"
+} from "@chakra-ui/styled-system";
+import { filterUndefined, objectFilter, runIfFn } from "@chakra-ui/utils";
+// import _styled, { CSSObject, FunctionInterpolation } from "@emotion/styled"
+import _styled, { FunctionInterpolation } from "@emotion/native";
+import { shouldForwardProp } from "./should-forward-prop";
+import { As, ChakraComponent, ChakraProps, PropsOf } from "./system.types";
+import { domElements, DOMElements } from "./system.utils";
 
 type StyleResolverProps = SystemStyleObject & {
-  __css?: SystemStyleObject
-  sx?: SystemStyleObject
-  theme: any
-  css?: CSSObject
-}
+  __css?: SystemStyleObject;
+  sx?: SystemStyleObject;
+  theme: any;
+  css?: any;
+  // css?: CSSObject;
+};
 
 interface GetStyleObject {
   (options: {
     baseStyle?:
       | SystemStyleObject
-      | ((props: StyleResolverProps) => SystemStyleObject)
-  }): FunctionInterpolation<StyleResolverProps>
+      | ((props: StyleResolverProps) => SystemStyleObject);
+  }): FunctionInterpolation<StyleResolverProps>;
 }
 
 /**
@@ -38,49 +40,51 @@ interface GetStyleObject {
  * behaviors. Right now, the `sx` prop has the highest priority so the resolved
  * fontSize will be `40px`
  */
-export const toCSSObject: GetStyleObject = ({ baseStyle }) => (props) => {
-  const { theme, css: cssProp, __css, sx, ...rest } = props
-  const styleProps = objectFilter(rest, (_, prop) => isStyleProp(prop))
-  const finalBaseStyle = runIfFn(baseStyle, props)
-  const finalStyles = Object.assign(
-    {},
-    __css,
-    finalBaseStyle,
-    filterUndefined(styleProps),
-    sx,
-  )
-  const computedCSS = css(finalStyles)(props.theme)
-  return cssProp ? [computedCSS, cssProp] : computedCSS
-}
+export const toCSSObject: GetStyleObject =
+  ({ baseStyle }) =>
+  (props) => {
+    const { theme, css: cssProp, __css, sx, ...rest } = props;
+    const styleProps = objectFilter(rest, (_, prop) => isStyleProp(prop));
+    const finalBaseStyle = runIfFn(baseStyle, props);
+    const finalStyles = Object.assign(
+      {},
+      __css,
+      finalBaseStyle,
+      filterUndefined(styleProps),
+      sx
+    );
+    const computedCSS = css(finalStyles)(props.theme);
+    return cssProp ? [computedCSS, cssProp] : computedCSS;
+  };
 
 interface StyledOptions {
-  shouldForwardProp?(prop: string): boolean
-  label?: string
+  shouldForwardProp?(prop: string): boolean;
+  label?: string;
   baseStyle?:
     | SystemStyleObject
-    | ((props: StyleResolverProps) => SystemStyleObject)
+    | ((props: StyleResolverProps) => SystemStyleObject);
 }
 
 export function styled<T extends As, P = {}>(
   component: T,
-  options?: StyledOptions,
+  options?: StyledOptions
 ) {
-  const { baseStyle, ...styledOptions } = options ?? {}
+  const { baseStyle, ...styledOptions } = options ?? {};
 
   if (!styledOptions.shouldForwardProp) {
-    styledOptions.shouldForwardProp = shouldForwardProp
+    styledOptions.shouldForwardProp = shouldForwardProp;
   }
 
-  const styleObject = toCSSObject({ baseStyle })
+  const styleObject = toCSSObject({ baseStyle });
   return _styled(
     component as React.ComponentType<any>,
-    styledOptions,
-  )(styleObject) as ChakraComponent<T, P>
+    styledOptions
+  )(styleObject) as ChakraComponent<T, P>;
 }
 
 export type HTMLChakraComponents = {
-  [Tag in DOMElements]: ChakraComponent<Tag, {}>
-}
+  [Tag in DOMElements]: ChakraComponent<Tag, {}>;
+};
 
 export type HTMLChakraProps<T extends As> = Omit<
   PropsOf<T>,
@@ -88,18 +92,17 @@ export type HTMLChakraProps<T extends As> = Omit<
     ? "ref" | "children" | keyof StyleProps
     : "ref" | keyof StyleProps
 > &
-  ChakraProps & { as?: As }
+  ChakraProps & { as?: As };
 
 type ChakraFactory = {
   <T extends As, P = {}>(
     component: T,
-    options?: StyledOptions,
-  ): ChakraComponent<T, P>
-}
+    options?: StyledOptions
+  ): ChakraComponent<T, P>;
+};
 
-export const chakra = (styled as unknown) as ChakraFactory &
-  HTMLChakraComponents
+export const chakra = styled as unknown as ChakraFactory & HTMLChakraComponents;
 
 domElements.forEach((tag) => {
-  chakra[tag] = chakra(tag)
-})
+  chakra[tag] = chakra(tag);
+});
