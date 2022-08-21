@@ -1,4 +1,4 @@
-import type {
+import  {
   SystemStyleFunction,
   SystemStyleObject,
 } from "@chakra-ui/theme-tools"

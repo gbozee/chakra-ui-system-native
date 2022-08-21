@@ -1,5 +1,5 @@
 import { getColor, mode, transparentize } from "@chakra-ui/theme-tools"
-import type {
+import  {
   SystemStyleFunction,
   SystemStyleObject,
 } from "@chakra-ui/theme-tools"

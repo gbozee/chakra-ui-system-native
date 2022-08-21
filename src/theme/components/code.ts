@@ -1,4 +1,4 @@
-import type { SystemStyleObject } from "@chakra-ui/theme-tools"
+import  { SystemStyleObject } from "@chakra-ui/theme-tools"
 import Badge from "./badge"
 
 const { variants, defaultProps } = Badge

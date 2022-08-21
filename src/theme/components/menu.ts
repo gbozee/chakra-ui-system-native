@@ -1,5 +1,5 @@
 import { menuAnatomy as parts } from "@chakra-ui/anatomy"
-import type {
+import  {
   PartsStyleFunction,
   SystemStyleFunction,
   SystemStyleObject,

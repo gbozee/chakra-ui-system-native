@@ -1,6 +1,6 @@
 import { alertAnatomy as parts } from "@chakra-ui/anatomy"
 import { getColor, mode, transparentize } from "@chakra-ui/theme-tools"
-import type {
+import {
   PartsStyleObject,
   PartsStyleFunction,
   StyleFunctionProps,

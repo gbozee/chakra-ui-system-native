@@ -1,5 +1,5 @@
 import { formErrorAnatomy as parts } from "@chakra-ui/anatomy"
-import type {
+import  {
   PartsStyleFunction,
   SystemStyleFunction,
 } from "@chakra-ui/theme-tools"

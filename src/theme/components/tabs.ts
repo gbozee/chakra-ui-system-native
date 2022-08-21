@@ -1,5 +1,5 @@
 import { tabsAnatomy as parts } from "@chakra-ui/anatomy"
-import type {
+import  {
   PartsStyleFunction,
   PartsStyleInterpolation,
   PartsStyleObject,

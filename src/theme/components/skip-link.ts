@@ -1,4 +1,4 @@
-import type { SystemStyleFunction } from "@chakra-ui/theme-tools"
+import  { SystemStyleFunction } from "@chakra-ui/theme-tools"
 import { mode } from "@chakra-ui/theme-tools"
 
 const baseStyle: SystemStyleFunction = (props) => ({

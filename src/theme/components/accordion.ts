@@ -1,5 +1,5 @@
 import { accordionAnatomy as parts } from "@chakra-ui/anatomy"
-import type {
+import {
   PartsStyleObject,
   SystemStyleObject,
 } from "@chakra-ui/theme-tools"

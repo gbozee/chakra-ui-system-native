@@ -1,4 +1,4 @@
-import type {
+import  {
   SystemStyleInterpolation,
   SystemStyleObject,
 } from "@chakra-ui/theme-tools";

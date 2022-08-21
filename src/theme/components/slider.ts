@@ -1,5 +1,5 @@
 import { sliderAnatomy as parts } from "@chakra-ui/anatomy"
-import type {
+import  {
   PartsStyleFunction,
   StyleFunctionProps,
   SystemStyleFunction,

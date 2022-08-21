@@ -1,7 +1,7 @@
 import components from "./components"
 import foundations from "./foundations"
 import styles from "./styles"
-import type { ThemeConfig, ThemeDirection } from "./theme.types"
+import { ThemeConfig, ThemeDirection } from "./theme.types"
 
 const direction: ThemeDirection = "ltr"
 

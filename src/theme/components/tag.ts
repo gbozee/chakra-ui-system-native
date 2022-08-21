@@ -1,5 +1,5 @@
 import { tagAnatomy as parts } from "@chakra-ui/anatomy"
-import type {
+import  {
   PartsStyleInterpolation,
   PartsStyleObject,
   SystemStyleObject,

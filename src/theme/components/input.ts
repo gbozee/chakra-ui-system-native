@@ -1,5 +1,5 @@
 import { inputAnatomy as parts } from "@chakra-ui/anatomy"
-import type {
+import  {
   PartsStyleFunction,
   PartsStyleObject,
   SystemStyleObject,
