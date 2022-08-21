@@ -21,9 +21,10 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
     "incremental": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "outDir": "dist"
   },
-  "include": ["packages", "scripts", "tooling"],
+  "include": ["src", "scripts", "tooling"],
   "exclude": ["node_modules"],
   "ts-node": {
     "compilerOptions": {
