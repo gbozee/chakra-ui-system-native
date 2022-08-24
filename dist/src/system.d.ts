@@ -27,7 +27,7 @@ interface GetStyleObject {
  * fontSize will be `40px`
  */
 export declare const toCSSObject: GetStyleObject;
-interface StyledOptions {
+export interface StyledOptions {
     shouldForwardProp?(prop: string): boolean;
     label?: string;
     baseStyle?: SystemStyleObject | ((props: StyleResolverProps) => SystemStyleObject);
