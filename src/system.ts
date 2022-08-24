@@ -57,7 +57,7 @@ export const toCSSObject: GetStyleObject =
     return cssProp ? [computedCSS, cssProp] : computedCSS;
   };
 
-interface StyledOptions {
+export interface StyledOptions {
   shouldForwardProp?(prop: string): boolean;
   label?: string;
   baseStyle?:
