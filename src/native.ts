@@ -1,0 +1,1 @@
+export { createStyled } from "@emotion/primitives-core";

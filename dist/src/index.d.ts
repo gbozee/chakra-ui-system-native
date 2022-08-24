@@ -11,4 +11,5 @@ export * from "./use-style-config";
 export { theme as defaultTheme } from './theme';
 export { shouldForwardProp } from "./should-forward-prop";
 export * from './extend-theme';
+export * from './native';
 //# sourceMappingURL=index.d.ts.map
